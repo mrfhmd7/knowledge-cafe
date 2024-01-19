@@ -15,7 +15,7 @@ const MainContent = ({ blog }) => {
                                    <img className='h-14 w-14 object-cover rounded-full' src={profile_url} alt="" />
                                    <div>     
                                         <h3 className='font-semibold text-xl'>{name}</h3>
-                                        <p>{date}</p>
+                                        <p className='text-slate-500'>{date}</p>
                                    </div>
                               </div>
                               <p className='flex text-slate-500'>{time} min read
@@ -26,7 +26,7 @@ const MainContent = ({ blog }) => {
                          </div>
                     </div>
                     <h1 className='font-bold text-3xl mt-7'>{title}</h1>
-                    <button>Mark as read</button>
+                    <button className='text-blue-600 underline'>Mark as read</button>
                </div>
           </>
      );
