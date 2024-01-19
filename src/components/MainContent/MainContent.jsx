@@ -7,7 +7,7 @@ const MainContent = ({ blog }) => {
 
      return (
           <>
-               <div className='p-4 border-solid border-2 border-indigo-400 mb-8 rounded-lg font-body'>
+               <div className='p-4 border-solid border-2 border-indigo-400 mb-8 rounded-lg'>
                     <img className='h-96 w-11/12 m-auto rounded-xl' src={img} alt="" />
                     <div>
                          <div className='flex items-center justify-between mt-7'>     

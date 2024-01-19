@@ -14,7 +14,7 @@ const Body = () => {
      
 
      return (
-          <div className='grid grid-cols-10 mt-8'>
+          <div className='grid grid-cols-10 mt-8 font-body'>
                <div className='col-span-6'>
                     {
                          blogs.map(blog => <MainContent
@@ -23,7 +23,7 @@ const Body = () => {
                          ></MainContent>)
                     }
                </div>
-               <div className='col-span-4 bg-red-400'>
+               <div className='col-span-4 ml-8'>
                     <Sidebar></Sidebar>
                </div>
           </div>
