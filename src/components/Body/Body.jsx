@@ -6,6 +6,27 @@ const Body = () => {
      const [blogs, setBlogs] = useState([]);
      // console.log(data);
 
+     const [bookmark, setBookmark] = useState([]);
+
+     // console.log(bookmark);
+
+     const handleShowTime = (blog) => {
+          // console.log(blog);
+
+          let showTitle = [];
+
+          const exists = bookmark?.find(b => b.id === blog.id);
+          // console.log(exists);
+          if (!exists) {
+               showTitle = [...bookmark, blog];
+          }
+          else {
+               const remaining = bookmark?.filter(b => b.id === blog.id)
+               showTitle = [...remaining, exists];
+          }
+          setBookmark(showTitle);
+     };
+
      useEffect(() => {
           fetch('fakedata.json')
                .then(res => res.json())
@@ -19,12 +40,15 @@ const Body = () => {
                     {
                          blogs.map(blog => <MainContent
                               blog={blog}
+                              handleShowTime={handleShowTime}
                               key={blog.id}
                          ></MainContent>)
                     }
                </div>
                <div className='col-span-4 ml-8'>
-                    <Sidebar></Sidebar>
+                    <Sidebar
+                         bookmark={bookmark}
+                    ></Sidebar>
                </div>
           </div>
      );
