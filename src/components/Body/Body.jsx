@@ -31,7 +31,7 @@ const Body = () => {
           }
           else {
                const remaining = blogTime?.filter(t => t.id === blog.id);
-               showTime = [...remaining, exists];
+               showTime =[...remaining, blog];
           }
 
           setBlogTime(showTime);
@@ -47,8 +47,10 @@ const Body = () => {
                showTitle = [...bookmark, blog]
           }
           else {
-               const remaining = bookmark?.filter(t => t.id === blog.id);
-               showTitle = [...remaining, exists];
+               const remaining = bookmark?.filter(t => t.id !== blog.id);
+               // console.log(remaining);
+               showTitle = [...remaining, blog]
+               
           }
           // console.log(id);
 

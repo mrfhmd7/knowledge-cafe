@@ -17,7 +17,7 @@ const Sidebar = ({ bookmark, totalTime }) => {
                          <>
                               {
                                    bookmarks?.map(bookmark => (<Bookmarked
-                                        key={bookmark}
+                                        key={bookmark.id}
                                         bookmark={bookmark}
                                    ></Bookmarked>))
                               }
