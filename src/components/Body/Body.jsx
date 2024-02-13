@@ -14,16 +14,16 @@ const Body = () => {
 
      const [blogTime, setBlogTime] = useState([]);
 
-     console.log(blogTime);
+     // console.log(blogTime);
 
 
-     const timeReducer = (previous, current) => (previous + current.time);
+     const timeReducer = (previous, current) => (previous + current);
      const totalTime = blogTime.reduce(timeReducer, 0);
      // console.log(totalTime);
 
      const handleShowTime = (time) => {
           // console.log(typeof time);
-          
+
           setBlogTime((showTime => [...showTime, time]));
      }
 
@@ -41,15 +41,15 @@ const Body = () => {
                showTitle = [...remaining, blog]
 
           }
-          // console.log(id);
-
-          setBookmark(showTitle);
-
+          
           const alreadyAdded = bookmark?.find(a => a.id === id)
           // console.log(alreadyAdded);
           if (alreadyAdded) {
                toast("❌ Already bookmarked");
           }
+
+          setBookmark(showTitle);
+
      }
 
 
