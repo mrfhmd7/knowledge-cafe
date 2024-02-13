@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import MainContent from '../MainContent/MainContent';
 
-import {  toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Body = () => {
@@ -14,31 +14,20 @@ const Body = () => {
 
      const [blogTime, setBlogTime] = useState([]);
 
-     // console.log(blogTime);
+     console.log(blogTime);
 
-     
+
      const timeReducer = (previous, current) => (previous + current.time);
      const totalTime = blogTime.reduce(timeReducer, 0);
      // console.log(totalTime);
 
-     const handleShowTime = (blog) => {
-
-          let showTime = [];
-
-          const exists = blogTime?.find(t => t.id === blog.id);
-          if (!exists) {
-               showTime = [...blogTime, blog]
-          }
-          else {
-               const remaining = blogTime?.filter(t => t.id === blog.id);
-               showTime =[...remaining, blog];
-          }
-
-          setBlogTime(showTime);
+     const handleShowTime = (time) => {
+          // console.log(typeof time);
+          
+          setBlogTime((showTime => [...showTime, time]));
      }
 
-
-     const handleShowBookmark = (blog,id) => {
+     const handleShowBookmark = (blog, id) => {
 
           let showTitle = [];
 
@@ -50,7 +39,7 @@ const Body = () => {
                const remaining = bookmark?.filter(t => t.id !== blog.id);
                // console.log(remaining);
                showTitle = [...remaining, blog]
-               
+
           }
           // console.log(id);
 
@@ -67,9 +56,9 @@ const Body = () => {
      useEffect(() => {
           fetch('fakedata.json')
                .then(res => res.json())
-          .then(data => setBlogs(data))
+               .then(data => setBlogs(data))
      }, []);
-     
+
 
      return (
           <div className='grid grid-cols-10 mt-8 font-body'>

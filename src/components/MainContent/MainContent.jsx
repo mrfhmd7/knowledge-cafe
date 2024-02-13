@@ -31,7 +31,7 @@ const MainContent = ({ blog, handleShowBookmark, handleShowTime }) => {
                          </div>
                     </div>
                     <h1 className='font-bold text-3xl mt-7'>{title}</h1>
-                    <button onClick={() => handleTime(blog)} className='text-blue-600 underline'>Mark as read</button>
+                    <button onClick={() => handleTime(time)} className='text-blue-600 underline'>Mark as read</button>
                </div>
           </>
      );
